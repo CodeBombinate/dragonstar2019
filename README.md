@@ -27,7 +27,7 @@ devtools::install_github("hadley/babynames")
 
 This is a basic example which shows you how to use these package:
 
-###Reading the data
+### Reading the data
 
 The first step is to load datasets needed
 
@@ -40,20 +40,20 @@ bdtnp <- read.table(bdtnp, header = T)
 geometry <-system.file("extdata", "geometry.txt", package = "AtlasInf")
 geometry <- read.table(geometry, header = T)
 ```
-###Building knn networks and integrating these
+### Building knn networks and integrating these
 ``` r
 atlasinf<-main(dge_raw,bdtnp,geometry)
 ```
-###Ploting gene expression pattern
+### Ploting gene expression pattern
 ``` r
 plot_atlas(atlasinf,geometry,"sna")
 ```
-###Evaluating computed atlas with designed metrics
+### Evaluating computed atlas with designed metrics
 ``` r
 score<-scoring1(atlasinf,geometry,nrow(bdtnp),6)
 print(paste("score evaluated with metric 1:",as.character(score)))
 ```
-###Computing atlas in the method provided in package "DistMap"
+### Computing atlas in the method provided in package "DistMap"
 
 ``` r
 atlas<-distmap_atlas(dge_raw,bdtnp,geometry)
